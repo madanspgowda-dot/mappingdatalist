@@ -2,19 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SignUp</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/signup.css">
 </head>
 <body>
 
-<form action="">
+<form th:action="@{/login}" method="post" th:object="${logindata}">
     <h1>Login</h1>
-    <label >Email</label>
-    <input type="email" placeholder="Enter The Email" required>
-    <label >Password</label>
-    <input type="password" placeholder="Enter the password" required>
-    <div class="logpage"><p>Create an account:<a th:href="@{/}">SignUp</a></p></div>
+
+    <label>Email</label>
+    <input type="email" placeholder="Enter The Email" th:field="*{email}" required>
+
+    <label>Password</label>
+    <input type="password" placeholder="Enter the password" th:field="*{password}" required>
+
+    <div class="logpage">
+        <p>Create an account: <a th:href="@{/}">SignUp</a></p>
+    </div>
+
     <button type="submit">Submit</button>
+
 </form>
+
 </body>
 </html>
